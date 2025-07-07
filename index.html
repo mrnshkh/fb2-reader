@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>FB2 Читалка (v3)</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      padding: 80px 20px 20px;
+      background-color: #f4f4f4;
+      color: #222;
+      transition: all 0.3s ease;
+    }
+    #controls {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 10px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 999;
+    }
+    #content {
+      font-size: 16px;
+      max-width: 800px;
+      margin: auto;
+      white-space: pre-wrap;
+    }
+    button, select {
+      padding: 8px 14px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    button:hover, select:hover {
+      background-color: #eaeaea;
+      border-color: #999;
+    }
+    button:focus, select:focus {
+      outline: none;
+      border-color: #666;
+    }
+    .dark {
+      background-color: #111;
+      color: #eee;
+    }
+    .page-nav {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .page-nav button {
+      margin: 2px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="controls">
+  <input type="file" id="fileInput" accept=".fb2">
+  <select id="fontFamily">
+    <option value="Georgia">Georgia</option>
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="Tahoma">Tahoma</option>
+    <option value="Courier New">Courier New</option>
+  </select>
+  <button onclick="increaseFont()">A+</button>
+  <button onclick="decreaseFont()">A-</button>
+  <button onclick="toggleTheme()">🌙</button>
+</div>
+
+<div id="content">Загрузите FB2-файл...</div>
+<div class="page-nav hidden" id="pageNav"></div>
+
+<script src="reader_v3.js"></script>
+</body>
+</html>
